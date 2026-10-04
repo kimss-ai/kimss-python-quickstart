@@ -2,7 +2,7 @@
 
 This repo is the 5-minute tutorial. Traffic is governed by the **Hermis** orchestration framework behind the Kimss Gateway. Full SDK docs: [kimss-ai/kimss-python-sdk](https://github.com/kimss-ai/kimss-python-sdk).
 
-**Developer tier (Always Free):** 25,000 governed requests/month, 14-day telemetry, up to 5 workspace members. No credit card.
+**Start with a 14-day Production trial (no card):** 100,000 governed requests/month during the trial. After the trial, core control-plane access continues until you subscribe.
 
 1. Vault a provider key in **Governance → Provider Vault**.
 2. Generate a `kimss_...` Gateway key.
