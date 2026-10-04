@@ -1,0 +1,32 @@
+# Compile CI — restored onto kimss-ai/kimss-python-quickstart after each subtree
+# force-push (deploy keys cannot create .github/workflows).
+# OpenSSF Best Practices (passing) wants a documented, invocable test suite.
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions: read-all
+
+jobs:
+  compile:
+    name: Compile examples
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+
+      - name: Compile tutorial scripts
+        run: python -m unittest discover -s tests -v
