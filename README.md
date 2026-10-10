@@ -154,7 +154,7 @@ resp = client.chat.completions.create(
 |---------|--------------|-----|
 | `401` / invalid API key | Wrong or missing `KIMSS_WORKSPACE_KEY` | Mint a new key under **Gateway → Generate Key** |
 | `400` / missing agent | No `X-Kimss-Agent-Id` header | Set `KIMSS_AGENT_ID` and pass it via `extra_headers` |
-| `403` / `agent_disabled` | Kill switch is on | Re-enable the agent under **Governance → Agents** |
+| `403` / `agent_disabled` | Kill switch is on | **Re-enable** the agent under **Agents** (`/app/agents`) |
 | `429` / `governed_requests_exhausted` | Monthly allowance reached | Wait for reset or upgrade at [kimss.ai/pricing](https://kimss.ai/pricing) |
 | Model not found | Model not vaulted | Vault the provider endpoint + model under **Governance → Connected Infrastructure** |
 
