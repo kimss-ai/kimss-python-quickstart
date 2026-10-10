@@ -241,7 +241,7 @@ def main() -> None:
         if status == 403 and code == "agent_disabled":
             print(
                 f"Agent {DEMO_AGENT_ID} is disabled by the kill switch. "
-                "Re-enable it under Governance -> Agents in the Kimss dashboard."
+                "Re-enable it under Agents (/app/agents) in the Kimss dashboard."
             )
             raise SystemExit(3)
         if status == 429 and code == "governed_requests_exhausted":

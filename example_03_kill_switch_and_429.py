@@ -6,8 +6,8 @@ Two governance signals every integration should handle:
 1. ``429 governed_requests_exhausted`` - the free tier hard cap
    (25,000 governed requests/month). Do not retry in a tight loop; the meter
    resets next month.
-2. Kill-switch refusal - an operator disabled the agent in
-   Governance -> Agents; routed calls are refused until it is re-enabled.
+2. Kill-switch refusal - an operator disabled the agent under
+   Agents (/app/agents); routed calls are refused until it is re-enabled.
 
 Env: KIMSS_API_KEY (required), KIMSS_AGENT_ID (required), KIMSS_BASE_URL (optional).
 """
@@ -55,7 +55,7 @@ def main() -> None:
         if code in ("agent_disabled", "agent_killed"):
             print(
                 f"Agent {agent_id} is disabled by the kill switch. "
-                "Re-enable it under Governance -> Agents in the Kimss dashboard."
+                "Re-enable it under Agents (/app/agents) in the Kimss dashboard."
             )
             raise SystemExit(3)
         print(f"Gateway refused the call ({exc.status_code} {code or 'error'}): {exc}")
