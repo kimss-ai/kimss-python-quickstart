@@ -17,5 +17,5 @@ Hub: [kimss-ai/kimss-control-plane](https://github.com/kimss-ai/kimss-control-pl
 
 - This quickstart uses native OpenAI and Anthropic clients. Keep that pattern.
 - A new Python agent loop belongs in Kimss Forge: `pip install kimss-forge`, then `gateway="kimss"`. Repo: https://github.com/kimss-ai/kimss-forge
-- Do **not** `pip install kimss` or add Maven `com.kimss:kimss-java` to route chat. Those control-plane clients are deprecated for new onboarding.
+- Do **not** `pip install kimss` or add Maven `ai.kimss:kimss-java` to route Path A chat. Those packages are optional (control-plane / swarm lineage). New integration starts at https://github.com/kimss-ai/kimss-control-plane (`ONBOARDING.md`).
 - HTTP **451**, or a tool result `policy_violation` / `authority_boundary`, means Guardrails fired after the route worked. Do not change `base_url`. Follow the Guardrails section in the canonical file and https://kimss.ai/docs/trust_safety

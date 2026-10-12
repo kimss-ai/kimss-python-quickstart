@@ -2,7 +2,7 @@
 """Zero-rewrite adoption: official openai client + Kimss gateway + Agent-Id headers.
 
 Env:
-  KIMSS_WORKSPACE_KEY or KIMSS_API_KEY (required)
+  KIMSS_API_KEY or KIMSS_WORKSPACE_KEY (required)
   KIMSS_AGENT_ID (required)
   KIMSS_MODEL (required)
   KIMSS_GATEWAY_URL or KIMSS_BASE_URL (optional)
@@ -17,12 +17,12 @@ from openai import OpenAI
 
 
 def main() -> None:
-    key = (os.environ.get("KIMSS_WORKSPACE_KEY") or os.environ.get("KIMSS_API_KEY") or "").strip()
+    key = (os.environ.get("KIMSS_API_KEY") or os.environ.get("KIMSS_WORKSPACE_KEY") or "").strip()
     agent_id = (os.environ.get("KIMSS_AGENT_ID") or "").strip()
     model = (os.environ.get("KIMSS_MODEL") or "").strip()
     if not key or not agent_id or not model:
         print(
-            "Set KIMSS_WORKSPACE_KEY (or KIMSS_API_KEY), KIMSS_AGENT_ID, and KIMSS_MODEL "
+            "Set KIMSS_API_KEY (or KIMSS_WORKSPACE_KEY), KIMSS_AGENT_ID, and KIMSS_MODEL "
             "(see README steps 1-3).",
             file=sys.stderr,
         )

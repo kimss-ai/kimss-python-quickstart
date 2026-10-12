@@ -9,6 +9,8 @@
 
 **Track, govern, and secure autonomous agents with exactly 1 line of code. Zero data-plane refactoring required.**
 
+> **New Kimss gateway integration** starts at [control-plane ONBOARDING.md](https://github.com/kimss-ai/kimss-control-plane/blob/main/ONBOARDING.md). This repo is a tutorial demo of the invisible-proxy pattern — not a second contract.
+
 Put an enforcement and observability layer between your Python application and OpenAI or Anthropic — identity, audit logging, spend limits, and kill switches — without rewriting your app.
 
 ## Before → After
@@ -112,7 +114,7 @@ python example_02_openai_override.py
 
 ### 2. Mint Key
 
-**Gateway → Generate Key**. Copy `kimss_...`. Note your `agent_id` (or register one under Gateway).
+**Gateway → Generate Key** at https://kimss.ai/app/keys. Copy `kimss_...` into `KIMSS_API_KEY` (alias `KIMSS_WORKSPACE_KEY`). Pick a stable `agent_id` slug for `X-Kimss-Agent-Id` — the Agents inventory row appears after the first attributed call (JIT). You do not need to pre-register the agent in the UI.
 
 ### 3. Route Traffic (zero refactoring)
 
@@ -134,7 +136,7 @@ from openai import OpenAI
 
 client = OpenAI(
     base_url=os.getenv("KIMSS_GATEWAY_URL", "https://api.kimss.ai/v1"),
-    api_key=os.getenv("KIMSS_WORKSPACE_KEY") or os.getenv("KIMSS_API_KEY"),
+    api_key=os.getenv("KIMSS_API_KEY") or os.getenv("KIMSS_WORKSPACE_KEY"),
 )
 resp = client.chat.completions.create(
     model=os.getenv("KIMSS_MODEL", "custom:your-vaulted-model"),
